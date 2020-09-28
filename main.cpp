@@ -11,15 +11,29 @@ short* get_col(short n, short lambda, short p);
 */
 short** get_matrix(short n, short p);
 
+/*
+  print n stars
+*/
+void print_stars(short n){
+  for(int i=0; i<n; i++){std::cout<<"*";}
+}
 
 int main()
 {
-  short n=3;
+  short n=0;
+  std::cout<<"> n = ";
+  std::cin>>n;
+  std::cout<<"\n\n";
   for(int p=1; p<2*n; p++)
   {
+    std::cout<<"p = "<<p;
+    std::cout<<"\n";
+    print_stars(n*4);
+    std::cout<<"\n";
     short** mat = get_matrix(n,p);
     print_matrix(2*n, mat);
-    std::cout<<"\n*****************************\n";
+    print_stars(n*4);
+    std::cout<<"\n\n";
     delete_matrix(2*n, mat);
   }
   return 0;
@@ -32,7 +46,11 @@ int main()
 short** get_matrix(short n, short p)
 {
   short** matrix = new short*[2*n];
-  for(int lambda = 0; lambda<2*n; lambda++)
+  short * col0  = new short[2*n];
+  for(int i=0; i<2*n; i++){col0[i]=0;}
+  col0[p] =1;
+  matrix[0]=col0; 
+  for(int lambda = 1; lambda<2*n; lambda++)
   {
     matrix[lambda] = get_col(n, lambda, p);
   }
