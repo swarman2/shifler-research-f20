@@ -7,6 +7,8 @@
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_eigen.h>
+gsl_vector_complex* gsl_eigs(gsl_matrix *a, int size);
+
 
 //get eigenvalues of a short** matrix by converting to gsl
 void eigs(short** m, int n)
@@ -21,7 +23,8 @@ void eigs(short** m, int n)
 			gsl_matrix_set(m_copy,i,j,m[i][j]);
 		}
 	}
-	for(i = 0; i < n; i++){
+	gsl_vector_complex* v = gsl_eigs(m_copy, n);
+	for(int i = 0; i < n; i++){
 		printf("%g + %gi\n", GSL_REAL(gsl_vector_complex_get(v, i)), GSL_IMAG(gsl_vector_complex_get(v, i)));
 	}
 	gsl_matrix_free(m_copy);
@@ -50,7 +53,7 @@ void print_output(gsl_matrix *a, gsl_vector_complex *v, int n, int matid, char* 
 }
 
 //find the eigenvalues of a square matrix
-gls_vector_complex* gsl_eigs(gsl_matrix *a, int size){
+gsl_vector_complex* gsl_eigs(gsl_matrix *a, int size){
 	// //hold the original matrix to write to file later
 	// gsl_matrix *a_copy;
 	// a_copy = gsl_matrix_calloc(size, size);
