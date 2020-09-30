@@ -36,6 +36,7 @@ gsl_vector_complex* gsl_eigs(gsl_matrix *a, int size){
 		puts("error");
 		exit(1);
 	}
+	gsl_eigen_nonsymm_free(w);
 
 	//print eigenvalues
 	//TODO: do something different with output

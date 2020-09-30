@@ -37,6 +37,7 @@ int main()
     std::cout<<"\n\n";
     gsl_vector_complex* v = eigs(mat,2*n);
     print_eigs(v, 2*n, p);
+    gsl_vector_complex_free(v);
     delete_matrix(2*n, mat);
   }
   return 0;
