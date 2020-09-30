@@ -1,3 +1,4 @@
+#include<iostream>
 /*
   Utitlity function to print an n x n matrix, mat
 */

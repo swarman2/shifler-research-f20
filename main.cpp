@@ -35,7 +35,8 @@ int main()
     print_matrix(2*n, mat);
     print_stars(n*4);
     std::cout<<"\n\n";
-    eigs(mat,2*n);
+    gsl_vector_complex* v = eigs(mat,2*n);
+    print_eigs(v, 2*n, p);
     delete_matrix(2*n, mat);
   }
   return 0;
