@@ -1,5 +1,6 @@
 #include<iostream>
 #include"matrix_util.cpp"
+#include"eigs.h"
 /*
   Given a n, lambda and a p use Theorem 1.10 to
   find the
@@ -34,6 +35,7 @@ int main()
     print_matrix(2*n, mat);
     print_stars(n*4);
     std::cout<<"\n\n";
+    eigs(mat,2*n);
     delete_matrix(2*n, mat);
   }
   return 0;
@@ -49,7 +51,7 @@ short** get_matrix(short n, short p)
   short * col0  = new short[2*n];
   for(int i=0; i<2*n; i++){col0[i]=0;}
   col0[p] =1;
-  matrix[0]=col0; 
+  matrix[0]=col0;
   for(int lambda = 1; lambda<2*n; lambda++)
   {
     matrix[lambda] = get_col(n, lambda, p);
