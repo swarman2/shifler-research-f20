@@ -8,10 +8,17 @@
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_eigen.h>
 
+struct eigen_info{
+	gsl_vector_complex *eval;
+	gsl_matrix_complex *evec;
+};
+
 //put all output in char* out
-void print_eigs(gsl_vector_complex *v, int n, int matid);
+void print_eigs(eigen_info *v, int n, int matid);
 //find the eigenvalues of a square matrix
-gsl_vector_complex* gsl_eigs(gsl_matrix *a, int size);
+eigen_info* gsl_eigs(gsl_matrix *a, int size);
 //get eigenvalues of a short** matrix by converting to gsl
-gsl_vector_complex* eigs(short** m, int n);
+eigen_info* eigs(short** m, int n);
+
+
 #endif
