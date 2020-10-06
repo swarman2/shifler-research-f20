@@ -20,6 +20,33 @@ void transpose_matrix(short n, short** matrix);
 */
 void swap(short& a, short& b);
 
+short** multiply_matrix(short** mat1, short** mat2, int n)
+{
+  short** new_mat = new short*[n];
+  for(int i=0; i<n; i++)
+  {
+    new_mat[i] = new short [n];
+  }
+  for(int i=0; i<n; i++)
+  {
+    for(int j=0; j<n; j++)
+    {
+      new_mat[i][j]=0;
+    }
+  }
+  for(int i=0; i<n; i++)
+  {
+    for(int j=0; j<n; j++)
+    {
+      for(int k=0; k<n; k++)
+      {
+        new_mat[i][j]+= mat1[i][k] * mat2[k][j];
+      }
+    }
+  }
+  return new_mat;
+}
+
 
 void print_matrix(short n, short** mat)
 {
