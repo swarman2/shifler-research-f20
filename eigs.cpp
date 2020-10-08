@@ -15,7 +15,7 @@ void print_eigs(eigen_info *v, int n, int matid){
 		for(int j=0; j<n; j++)
 		{
 			gsl_complex z = gsl_matrix_complex_get(v->evec, i,j);
-			printf(     "(%.12e,%.12e)%s",
+			printf(     "(%.4e,%.4e)%s",
                   GSL_REAL(z),
                   GSL_IMAG(z),
                   (j < n - 1) ? " " : "\n");
