@@ -4,7 +4,7 @@
 /*
   Utitlity function to print an n x n matrix, mat
 */
-void print_matrix(short n, short** mat, int id=0);
+void print_matrix(short n, short** mat, int id=0, bool mathematica =false);
 
 
 /*

@@ -3,8 +3,6 @@
 #include"eigs.h"
 #include "UI_util.h"
 
-
-
 int main()
 {
   short select=0;
@@ -19,8 +17,9 @@ int main()
       break;
       case 3: print_eigen_info();
       break;
+      case 4: plot_eigen_val();
     }
 
-  }while(select!=4);
+  }while(select!=5);
   return 0;
 }

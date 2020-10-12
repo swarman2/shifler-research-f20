@@ -5,5 +5,5 @@ short menu();
 void comm_check();
 void print_matrices();
 void print_eigen_info();
-
+void plot_eigen_val();
 #endif

@@ -29,20 +29,43 @@ short** multiply_matrix(short** mat1, short** mat2, int n)
 }
 
 
-void print_matrix(short n, short** mat, int id)
+void print_matrix(short n, short** mat, int id, bool mathematica)
 {
+
   if(id!=0)
     std::cout<<"p = "<<id;
   std::cout<<"\n";
   print_stars(n*4);
   std::cout<<"\n";
-  for(int i=0; i<n; i++)
+  if(mathematica)
   {
-    for(int j=0; j<n; j++)
+    std::cout<<"{";
+    for(int i=0; i<n; i++)
     {
-      std::cout<<mat[i][j]<<" ";
+      std::cout<<"{";
+      for(int j=0; j<n; j++)
+      {
+        std::cout<<mat[i][j];
+        if(j!=n-1)
+          std::cout<<",";
+      }
+      std::cout<<"}";
+      if(i!=n-1)
+        std::cout<<",";
+      std::cout<<"\n";
     }
-    std::cout<<"\n";
+    std::cout<<"}";
+  }
+  else
+  {
+    for(int i=0; i<n; i++)
+    {
+      for(int j=0; j<n; j++)
+      {
+        std::cout<<mat[i][j]<<" ";
+      }
+      std::cout<<"\n";
+    }
   }
   print_stars(n*4);
   std::cout<<"\n";
