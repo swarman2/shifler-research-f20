@@ -17,9 +17,9 @@ int main()
       break;
       case 3: print_eigen_info();
       break;
-      case 4: plot_eigen_val();
+      // case 4: plot_eigen_val();
     }
 
-  }while(select!=5);
+  }while(select!=4);
   return 0;
 }
